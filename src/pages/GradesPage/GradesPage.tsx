@@ -1,0 +1,136 @@
+import { useLocation } from "react-router-dom";
+import { StyledPage } from "../style";
+import {
+  ColumnContainer,
+  GradeForm,
+  GradeInputs,
+  GradesContainer,
+  UlScrollContainer,
+} from "./style";
+import { GradeInfo, UserInfo } from "../../vite-env";
+import { storage } from "../../utils/constants/storage";
+import { ChangeEvent, FormEvent, useState } from "react";
+import Grade from "../../components/Grade/Grade";
+
+const GradesPage = () => {
+  const { pathname } = useLocation();
+
+  const userStorage = localStorage.getItem(storage.user);
+  const { name, cpf }: UserInfo = userStorage
+    ? JSON.parse(userStorage)
+    : { name: "" };
+
+  const defaultGradeInfo = {
+    name,
+    cpf,
+    grade1: 0,
+    grade2: 0,
+    rgm: "",
+    classN: "",
+  };
+  const [gradeInfo, setGradeInfo] = useState<GradeInfo>(defaultGradeInfo);
+  const handleGradeInput = (e: ChangeEvent<HTMLInputElement>, type: string) => {
+    setGradeInfo((previous) => ({ ...previous, [type]: e.target.value }));
+  };
+
+  const filterGrades = (grades: GradeInfo[]) => {
+    return grades.filter(({ cpf }) => cpf === gradeInfo.cpf);
+  };
+  const [grades, setGrades] = useState<GradeInfo[]>(() => {
+    const storedGrades = localStorage.getItem(storage.grades);
+    if (storedGrades) {
+      return filterGrades(JSON.parse(storedGrades) as GradeInfo[]);
+    } else {
+      return [];
+    }
+  });
+  const insertGrade = (e: FormEvent) => {
+    e.preventDefault();
+    const storedGrades = localStorage.getItem(storage.grades);
+    if (!storedGrades) {
+      localStorage.setItem(storage.grades, JSON.stringify([gradeInfo]));
+      setGrades([gradeInfo]);
+    } else {
+      const updatedGrades = [
+        ...filterGrades(JSON.parse(storedGrades) as GradeInfo[]),
+        gradeInfo,
+      ];
+      localStorage.setItem(storage.grades, JSON.stringify(updatedGrades));
+      setGrades(updatedGrades);
+    }
+    setGradeInfo(defaultGradeInfo);
+  };
+
+  return (
+    <StyledPage pathname={pathname}>
+      <ColumnContainer>
+        <GradeForm onSubmit={insertGrade}>
+          <div>
+            <label htmlFor="name">nome</label>
+            <input disabled={true} value={gradeInfo.name} id="name" />
+          </div>
+          <div>
+            <label htmlFor="cpf">cpf</label>
+            <input disabled={true} value={gradeInfo.cpf} id="cpf" />
+          </div>
+          <div>
+            <label htmlFor="rgm">rgm</label>
+            <input
+              required
+              type="text"
+              id="rgm"
+              value={gradeInfo.rgm}
+              onChange={(e) => handleGradeInput(e, "rgm")}
+            />
+          </div>
+          <div>
+            <label htmlFor="class">turma</label>
+            <input
+              id="class"
+              value={gradeInfo.classN}
+              onChange={(e) => handleGradeInput(e, "classN")}
+            />
+          </div>
+          <GradeInputs>
+            <div>
+              <label htmlFor="grade1">nota1</label>
+              <input
+                required
+                type="number"
+                id="grade1"
+                min={0}
+                value={gradeInfo.grade1}
+                onChange={(e) => handleGradeInput(e, "grade1")}
+              />
+            </div>
+            <div>
+              <label htmlFor="grade2">nota2</label>
+              <input
+                required
+                type="number"
+                id="grade2"
+                min={0}
+                value={gradeInfo.grade2}
+                onChange={(e) => handleGradeInput(e, "grade2")}
+              />
+            </div>
+          </GradeInputs>
+          <button type="submit">
+            <p>Inserir</p>
+          </button>
+        </GradeForm>
+        {grades.length > 0 && (
+          <UlScrollContainer>
+            <GradesContainer>
+              {grades.map((grade, i) => (
+                <Grade key={i} grade={grade} />
+              ))}
+            </GradesContainer>
+          </UlScrollContainer>
+        )}
+      </ColumnContainer>
+    </StyledPage>
+  );
+};
+
+export default GradesPage;
