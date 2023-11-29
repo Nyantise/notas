@@ -81,6 +81,7 @@ const GradesPage = () => {
               id="rgm"
               value={gradeInfo.rgm}
               onChange={(e) => handleGradeInput(e, "rgm")}
+              placeholder="digite seu rgm"
             />
           </div>
           <div>
@@ -89,6 +90,7 @@ const GradesPage = () => {
               id="class"
               value={gradeInfo.classN}
               onChange={(e) => handleGradeInput(e, "classN")}
+              placeholder="digite a sua turma"
             />
           </div>
           <GradeInputs>
@@ -101,6 +103,7 @@ const GradesPage = () => {
                 min={0}
                 value={gradeInfo.grade1}
                 onChange={(e) => handleGradeInput(e, "grade1")}
+                placeholder="digite a sua 1 nota"
               />
             </div>
             <div>
@@ -112,6 +115,7 @@ const GradesPage = () => {
                 min={0}
                 value={gradeInfo.grade2}
                 onChange={(e) => handleGradeInput(e, "grade2")}
+                placeholder="digite a sua 2 nota"
               />
             </div>
           </GradeInputs>

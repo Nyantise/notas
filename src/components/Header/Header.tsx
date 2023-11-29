@@ -17,7 +17,7 @@ const Header = () => {
     Swal.fire({
       title: "Realmente deseja sair?",
       icon: "question",
-      width: "70%",
+      width: "350px",
       showDenyButton: true,
       denyButtonText: "Não",
       denyButtonColor: color.darkGray,
