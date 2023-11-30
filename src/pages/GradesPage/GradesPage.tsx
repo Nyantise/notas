@@ -18,13 +18,13 @@ const GradesPage = () => {
   const userStorage = localStorage.getItem(storage.user);
   const { name, cpf }: UserInfo = userStorage
     ? JSON.parse(userStorage)
-    : { name: "" };
+    : { name: "", cpf: "" };
 
   const defaultGradeInfo = {
     name,
     cpf,
-    grade1: 0,
-    grade2: 0,
+    grade1: undefined,
+    grade2: undefined,
     rgm: "",
     classN: "",
   };
@@ -47,18 +47,18 @@ const GradesPage = () => {
   const insertGrade = (e: FormEvent) => {
     e.preventDefault();
     const storedGrades = localStorage.getItem(storage.grades);
-    if (!storedGrades) {
+    if (storedGrades === null) {
       localStorage.setItem(storage.grades, JSON.stringify([gradeInfo]));
       setGrades([gradeInfo]);
     } else {
-      const updatedGrades = [
-        ...filterGrades(JSON.parse(storedGrades) as GradeInfo[]),
-        gradeInfo,
-      ];
-      localStorage.setItem(storage.grades, JSON.stringify(updatedGrades));
-      setGrades(updatedGrades);
+      const parsedStoredGrades: GradeInfo[] = JSON.parse(storedGrades);
+      localStorage.setItem(
+        storage.grades,
+        JSON.stringify([...parsedStoredGrades, gradeInfo])
+      );
+      setGrades([...filterGrades(parsedStoredGrades), gradeInfo]);
     }
-    setGradeInfo(defaultGradeInfo);
+    setGradeInfo({ ...defaultGradeInfo, grade1: 0, grade2: 0 });
   };
 
   return (
