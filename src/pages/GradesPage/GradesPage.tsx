@@ -113,6 +113,7 @@ const GradesPage = () => {
                 type="number"
                 id="grade2"
                 min={0}
+                max={10}
                 value={gradeInfo.grade2}
                 onChange={(e) => handleGradeInput(e, "grade2")}
                 placeholder="digite a sua 2 nota"

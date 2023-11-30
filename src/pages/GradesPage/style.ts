@@ -66,10 +66,11 @@ export const UlScrollContainer = styled.div`
   @media (max-width: ${minWidth}) {
     width: 85%;
   }
-  width: 100%;
+  width: 450px;
   max-height: 200px;
   overflow-y: auto;
-  border-radius: 18px;
+  overflow-x: hidden;
+  margin-bottom: 20px;
 `;
 export const GradesContainer = styled.ul`
   display: flex;

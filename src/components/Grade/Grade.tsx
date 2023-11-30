@@ -1,5 +1,12 @@
 import { GradeInfo } from "../../vite-env";
-import { StyledGrade } from "./style";
+import {
+  ClassIcon,
+  Content,
+  GradeIcon,
+  GradeN,
+  RGMicon,
+  StyledGrade,
+} from "./style";
 
 const Grade = ({
   grade: { classN, grade1, grade2, rgm },
@@ -8,15 +15,35 @@ const Grade = ({
 }) => {
   return (
     <StyledGrade>
-      <p>
-        <span>classe:</span> {classN}
-      </p>
-      <p>
-        <span>rgm:</span> {rgm}
-      </p>
-      <p>
-        <span>notas:</span> {grade1} e {grade2}
-      </p>
+      <div>
+        <div>
+          <ClassIcon />
+          <span>turma:</span>
+        </div>
+        <Content>
+          <p>{classN}</p>
+        </Content>
+      </div>
+      <div>
+        <div>
+          <RGMicon />
+          <span>rgm:</span>
+        </div>
+        <Content>
+          <p>{rgm}</p>
+        </Content>
+      </div>
+      <div>
+        <div>
+          <GradeIcon />
+          <span>notas:</span>
+        </div>
+        <Content>
+          <GradeN value={Number(grade1)}>{grade1}</GradeN>
+          <p> e </p>
+          <GradeN value={Number(grade2)}>{grade2}</GradeN>
+        </Content>
+      </div>
     </StyledGrade>
   );
 };
