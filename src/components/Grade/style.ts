@@ -15,7 +15,6 @@ export const StyledGrade = styled.li`
   border: 1px solid ${color.white};
   div {
     height: 100%;
-    font-size: 20px;
     color: ${color.white};
     display: flex;
     flex-direction: column;
@@ -26,6 +25,9 @@ export const StyledGrade = styled.li`
       display: flex;
       flex-direction: row;
       gap: 4px;
+      span {
+        font-size: 24px;
+      }
     }
   }
 `;
@@ -35,10 +37,11 @@ export const Content = styled.div`
   overflow-x: hidden;
   max-width: 102px;
   p {
+    font-size: 20px;
     margin-top: 20px;
     word-break: break-all;
     text-align: center;
-    line-height: 18px;
+    line-height: 20px;
   }
 `;
 export const ClassIcon = styled(SiGoogleclassroom)`
@@ -56,4 +59,5 @@ export const GradeIcon = styled(MdOutlineGrade)`
 export const GradeN = styled.p<{ value: number }>`
   color: ${({ value }) => (value >= 7 ? "green" : "red")};
   font-weight: 700;
+  font-size: 20px;
 `;

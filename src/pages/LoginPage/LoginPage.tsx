@@ -1,12 +1,13 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { StyledPage } from "../style";
 import { LoginContainer } from "./style";
 import { useLocation, useNavigate } from "react-router-dom";
 import { UserInfo } from "../../vite-env";
+import { storage } from "../../utils/constants/storage";
 
 const LoginPage = () => {
-  const { pathname } = useLocation();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const [userInfo, setUserInfo] = useState<UserInfo>({ name: "", cpf: "" });
   const [isLoading, setIsLoading] = useState(false);
@@ -16,7 +17,7 @@ const LoginPage = () => {
 
   const logIn = (e: FormEvent) => {
     e.preventDefault();
-    localStorage.setItem("user", JSON.stringify(userInfo));
+    localStorage.setItem(storage.user, JSON.stringify(userInfo));
     setIsLoading(true);
     setTimeout(() => navigate("/notas"), 1000);
   };
