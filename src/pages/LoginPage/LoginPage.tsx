@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { StyledPage } from "../style";
 import { LoginContainer } from "./style";
 import { useLocation, useNavigate } from "react-router-dom";
