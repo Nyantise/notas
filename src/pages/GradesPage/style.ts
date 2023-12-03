@@ -49,7 +49,9 @@ export const GradeForm = styled.form`
 export const GradeInputs = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 100%;
   div {
+    width: 47%;
     input {
       width: 100%;
     }

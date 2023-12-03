@@ -6,7 +6,7 @@ import { MdOutlineGrade } from "react-icons/md";
 
 export const StyledGrade = styled.li`
   width: 100%;
-  height: 80px;
+  height: 65px;
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -26,19 +26,19 @@ export const StyledGrade = styled.li`
       flex-direction: row;
       gap: 4px;
       span {
-        font-size: 24px;
+        font-size: 18px;
       }
     }
   }
 `;
-export const Content = styled.div`
+export const Content = styled.div<{ value: number }>`
   margin-top: -10px;
   overflow-y: auto;
   overflow-x: hidden;
   max-width: 102px;
   p {
-    font-size: 20px;
-    margin-top: 20px;
+    font-size: 16px;
+    margin-top: ${({ value }) => (value >= 16 ? "34px" : "-5px")};
     word-break: break-all;
     text-align: center;
     line-height: 20px;
