@@ -31,17 +31,17 @@ export const StyledGrade = styled.li`
     }
   }
 `;
-export const Content = styled.div<{ length: number }>`
+export const Content = styled.div`
   margin-top: -10px;
   overflow-y: auto;
   overflow-x: hidden;
   max-width: 102px;
   p {
+    margin-top: 5px;
     font-size: 16px;
-    margin-top: ${({ length }) =>
-      length >= 21 ? "30" : length >= 11 ? "25" : "-5"}px;
     word-break: break-all;
     text-align: center;
+    align-self: self-start;
     line-height: 20px;
   }
 `;
