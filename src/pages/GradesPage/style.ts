@@ -10,27 +10,32 @@ export const GradeForm = styled.form`
   border: 1px solid ${color.white};
   border-radius: 10px;
   display: grid;
-  input {
-    &::placeholder {
-      opacity: 0.1;
-    }
-    &:disabled {
-      cursor: not-allowed;
-      opacity: 0.4;
-    }
-    margin-bottom: 8px;
-    padding-left: 10px;
-    height: 40px;
+  place-items: center;
+  place-content: center;
+  div {
     width: 100%;
-    background-color: unset;
-    border-radius: 5px;
-    border: 1px solid ${color.white};
-    font-size: 18px;
-    color: ${color.white};
-  }
-  label {
-    align-self: flex-start;
-    color: ${color.white};
+    input {
+      &::placeholder {
+        opacity: 0.1;
+      }
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.4;
+      }
+      width: 100%;
+      margin-bottom: 8px;
+      padding-left: 10px;
+      height: 40px;
+      background-color: unset;
+      border-radius: 5px;
+      border: 1px solid ${color.white};
+      font-size: 18px;
+      color: ${color.white};
+    }
+    label {
+      align-self: flex-start;
+      color: ${color.white};
+    }
   }
   button {
     cursor: pointer;
@@ -75,7 +80,7 @@ export const UlScrollContainer = styled.div`
   margin-bottom: 20px;
 `;
 export const GradesContainer = styled.ul`
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  display: grid;
   gap: 8px;
 `;

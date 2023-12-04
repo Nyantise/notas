@@ -16,16 +16,15 @@ const GradesPage = () => {
   const { pathname } = useLocation();
 
   const userStorage = localStorage.getItem(storage.user);
-  const { name, cpf }: UserInfo = userStorage
+  const { name, rgm }: UserInfo = userStorage
     ? JSON.parse(userStorage)
-    : { name: "", cpf: "" };
+    : { name: "", rgm: "" };
 
   const defaultGradeInfo = {
     name,
-    cpf,
+    rgm,
     grade1: undefined,
     grade2: undefined,
-    rgm: "",
     classN: "",
   };
   const [gradeInfo, setGradeInfo] = useState<GradeInfo>(defaultGradeInfo);
@@ -34,7 +33,7 @@ const GradesPage = () => {
   };
 
   const filterGrades = (grades: GradeInfo[]) => {
-    return grades.filter(({ cpf }) => cpf === gradeInfo.cpf);
+    return grades.filter(({ rgm }) => rgm === gradeInfo.rgm);
   };
   const [grades, setGrades] = useState<GradeInfo[]>(() => {
     const storedGrades = localStorage.getItem(storage.grades);
@@ -70,19 +69,8 @@ const GradesPage = () => {
             <input disabled={true} value={gradeInfo.name} id="name" />
           </div>
           <div>
-            <label htmlFor="cpf">cpf</label>
-            <input disabled={true} value={gradeInfo.cpf} id="cpf" />
-          </div>
-          <div>
             <label htmlFor="rgm">rgm</label>
-            <input
-              required
-              type="text"
-              id="rgm"
-              value={gradeInfo.rgm}
-              onChange={(e) => handleGradeInput(e, "rgm")}
-              placeholder="digite seu rgm"
-            />
+            <input disabled={true} value={gradeInfo.rgm} id="rgm" />
           </div>
           <div>
             <label htmlFor="class">turma</label>

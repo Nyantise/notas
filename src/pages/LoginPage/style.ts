@@ -3,14 +3,11 @@ import { color, minWidth } from "../../utils/constants/css";
 
 export const LoginContainer = styled.form`
   @media (max-width: ${minWidth}) {
-    width: 85%;
+    width: 90%;
   }
   width: 450px;
   align-self: center;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
   gap: 8px;
   padding: 30px;
   border: 1px solid ${color.white};

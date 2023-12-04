@@ -5,7 +5,9 @@ export const StyledPage = styled.div<{ pathname: string }>`
   margin-top: ${({ pathname }) => (pathname === "/entrar" ? "unset" : "60px")};
   width: 100dvw;
   height: 100dvh;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  place-content: ${({ pathname }) =>
+    pathname === "/entrar" ? "center" : "unset"};
+  place-items: center;
   background-color: ${color.gray};
 `;

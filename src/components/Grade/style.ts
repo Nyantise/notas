@@ -5,9 +5,9 @@ import { SiGoogledocs } from "react-icons/si";
 import { MdOutlineGrade } from "react-icons/md";
 
 export const StyledGrade = styled.li`
-  width: 100%;
+  min-width: 100%;
   height: 65px;
-  border-radius: 15px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-around;

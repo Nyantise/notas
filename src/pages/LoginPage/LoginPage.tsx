@@ -9,7 +9,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  const [userInfo, setUserInfo] = useState<UserInfo>({ name: "", cpf: "" });
+  const [userInfo, setUserInfo] = useState<UserInfo>({ name: "", rgm: "" });
   const [isLoading, setIsLoading] = useState(false);
   const handleUserInput = (e: ChangeEvent<HTMLInputElement>, type: string) => {
     setUserInfo((previous) => ({ ...previous, [type]: e.target.value }));
@@ -37,17 +37,16 @@ const LoginPage = () => {
             placeholder="digite seu nome"
           />
         </div>
-
         <div>
-          <label htmlFor="cpf">cpf</label>
+          <label htmlFor="rgm">rgm</label>
           <input
             disabled={isLoading}
-            value={userInfo.cpf}
-            onChange={(e) => handleUserInput(e, "cpf")}
+            value={userInfo.rgm}
+            onChange={(e) => handleUserInput(e, "rgm")}
             required
             type="text"
-            id="cpf"
-            placeholder="digite seu cpf"
+            id="rgm"
+            placeholder="digite seu RGM"
           />
         </div>
         <button disabled={isLoading} type="submit">
