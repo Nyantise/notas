@@ -39,7 +39,7 @@ export const Content = styled.div<{ length: number }>`
   p {
     font-size: 16px;
     margin-top: ${({ length }) =>
-      length >= 21 ? "46" : length >= 11 ? "38" : "-5"}px;
+      length >= 21 ? "30" : length >= 11 ? "25" : "-5"}px;
     word-break: break-all;
     text-align: center;
     line-height: 20px;
