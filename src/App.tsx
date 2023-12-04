@@ -13,7 +13,14 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Navigate to="/entrar" />}></Route>
-        <Route path="/entrar" element={<LoginPage />}></Route>
+        <Route
+          path="/entrar"
+          element={
+            <Protected>
+              <LoginPage />
+            </Protected>
+          }
+        ></Route>
         <Route
           path="/notas"
           element={
