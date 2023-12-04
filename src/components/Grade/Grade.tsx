@@ -20,7 +20,7 @@ const Grade = ({
           <ClassIcon />
           <span>turma:</span>
         </div>
-        <Content value={classN.length}>
+        <Content length={classN.length}>
           <p>{classN}</p>
         </Content>
       </div>
@@ -29,7 +29,7 @@ const Grade = ({
           <RGMicon />
           <span>rgm:</span>
         </div>
-        <Content value={rgm.length}>
+        <Content length={rgm.length}>
           <p>{rgm}</p>
         </Content>
       </div>
@@ -38,7 +38,7 @@ const Grade = ({
           <GradeIcon />
           <span>notas:</span>
         </div>
-        <Content value={`${grade1} e ${grade2}`.length}>
+        <Content length={`${grade1} e ${grade2}`.length}>
           <GradeN value={Number(grade1)}>{grade1}</GradeN>
           <p> e </p>
           <GradeN value={Number(grade2)}>{grade2}</GradeN>

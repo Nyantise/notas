@@ -31,14 +31,15 @@ export const StyledGrade = styled.li`
     }
   }
 `;
-export const Content = styled.div<{ value: number }>`
+export const Content = styled.div<{ length: number }>`
   margin-top: -10px;
   overflow-y: auto;
   overflow-x: hidden;
   max-width: 102px;
   p {
     font-size: 16px;
-    margin-top: ${({ value }) => (value >= 16 ? "34px" : "-5px")};
+    margin-top: ${({ length }) =>
+      length > 30 ? "46" : length >= 16 ? "38" : "-5"}px;
     word-break: break-all;
     text-align: center;
     line-height: 20px;
