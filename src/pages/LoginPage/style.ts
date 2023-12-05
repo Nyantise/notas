@@ -17,7 +17,10 @@ export const LoginContainer = styled.form`
   }
   input {
     &::placeholder {
-      opacity: 0.1;
+      font-family: 'Roboto';
+      font-weight: 300;
+      color: white;
+      opacity: 0.5;
     }
     &:disabled {
       cursor: wait;
@@ -35,6 +38,7 @@ export const LoginContainer = styled.form`
   label {
     align-self: flex-start;
     color: ${color.white};
+    font-size: 22px;
   }
   button {
     &:disabled {

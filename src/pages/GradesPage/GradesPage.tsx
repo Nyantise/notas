@@ -65,15 +65,15 @@ const GradesPage = () => {
       <ColumnContainer>
         <GradeForm onSubmit={insertGrade}>
           <div>
-            <label htmlFor="name">nome</label>
+            <label htmlFor="name">Nome</label>
             <input disabled={true} value={gradeInfo.name} id="name" />
           </div>
           <div>
-            <label htmlFor="rgm">rgm</label>
+            <label htmlFor="rgm">RGM</label>
             <input disabled={true} value={gradeInfo.rgm} id="rgm" />
           </div>
           <div>
-            <label htmlFor="class">turma</label>
+            <label htmlFor="class">Turma</label>
             <input
               id="class"
               value={gradeInfo.classN}
@@ -83,7 +83,7 @@ const GradesPage = () => {
           </div>
           <GradeInputs>
             <div>
-              <label htmlFor="grade1">nota1</label>
+              <label htmlFor="grade1">Nota 1</label>
               <input
                 required
                 type="number"
@@ -95,7 +95,7 @@ const GradesPage = () => {
               />
             </div>
             <div>
-              <label htmlFor="grade2">nota2</label>
+              <label htmlFor="grade2">Nota 2</label>
               <input
                 required
                 type="number"

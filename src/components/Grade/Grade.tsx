@@ -18,7 +18,7 @@ const Grade = ({
       <div>
         <div>
           <ClassIcon />
-          <span>turma:</span>
+          <span>Turma:</span>
         </div>
         <Content>
           <p>{classN}</p>
@@ -27,7 +27,7 @@ const Grade = ({
       <div>
         <div>
           <RGMicon />
-          <span>rgm:</span>
+          <span>RGM:</span>
         </div>
         <Content>
           <p>{rgm}</p>
@@ -36,11 +36,11 @@ const Grade = ({
       <div>
         <div>
           <GradeIcon />
-          <span>notas:</span>
+          <span>Notas:</span>
         </div>
         <Content>
           <GradeN value={Number(grade1)}>{grade1}</GradeN>
-          <p> e </p>
+          <p> | </p>
           <GradeN value={Number(grade2)}>{grade2}</GradeN>
         </Content>
       </div>

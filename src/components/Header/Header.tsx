@@ -34,7 +34,7 @@ const Header = () => {
   return (
     <StyledHeader>
       <div>
-        <p>Olá {name}!</p>
+        <p>Olá, {name}!</p>
         <ExitIcon onClick={logOut} />
       </div>
     </StyledHeader>

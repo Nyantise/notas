@@ -26,7 +26,7 @@ const LoginPage = () => {
     <StyledPage pathname={pathname}>
       <LoginContainer onSubmit={logIn}>
         <div>
-          <label htmlFor="name">nome</label>
+          <label htmlFor="name">Nome</label>
           <input
             disabled={isLoading}
             value={userInfo.name}
@@ -38,7 +38,7 @@ const LoginPage = () => {
           />
         </div>
         <div>
-          <label htmlFor="rgm">rgm</label>
+          <label htmlFor="rgm">RGM</label>
           <input
             disabled={isLoading}
             value={userInfo.rgm}

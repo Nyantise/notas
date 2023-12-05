@@ -16,7 +16,10 @@ export const GradeForm = styled.form`
     width: 100%;
     input {
       &::placeholder {
-        opacity: 0.1;
+        opacity: 0.5;
+        color: white;
+        font-family: 'Roboto';
+        font-weight: 300;
       }
       &:disabled {
         cursor: not-allowed;
@@ -35,6 +38,7 @@ export const GradeForm = styled.form`
     label {
       align-self: flex-start;
       color: ${color.white};
+      font-size: 22px;
     }
   }
   button {
